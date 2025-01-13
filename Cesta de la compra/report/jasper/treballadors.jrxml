@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="treballadors" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac7f807-b02f-449c-a7c4-d91bf689bd81">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Odoo PostgreSQL server"/>
+	<property name="ireport.jasperserver.url" value="http://192.168.1.105:8080/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="user"/>
+	<property name="ireport.jasperserver.report.resource" value="/Odoo/Llistat_de_treballadors_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/Odoo/Llistat_de_treballadors"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT hr_employee.name AS Empleat,
+	hr_employee.birthday,
+	hr_employee.gender	
+FROM hr_employee
+WHERE 
+	 hr_employee.is_teacher = true]]>
+	</queryString>
+	<field name="empleat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="empleat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="hr_employee"/>
+	</field>
+	<field name="birthday" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="birthday"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="hr_employee"/>
+	</field>
+	<field name="gender" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="gender"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="hr_employee"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="-1" y="8" width="160" height="33" forecolor="#FF0400" uuid="cf4799a0-8862-492c-9539-904f69e078d2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Col·legi IOC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="29" y="41" width="112" height="22" forecolor="#F5992A" uuid="a49f9e55-5e6d-4cee-918b-ed362f3141a0"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Prova Odoo]]></text>
+			</staticText>
+			<image>
+				<reportElement x="160" y="4" width="75" height="74" uuid="03686707-aea3-4b2f-89eb-05b364dc85bb"/>
+				<imageExpression><![CDATA["repo:/Odoo/images/odoo_ioc_sample_school.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="240" y="10" width="328" height="51" uuid="6bbeaabc-5899-4f58-ac9d-c4129b992d48"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Llistat de professors]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="b862e2eb-eaf9-476e-9db5-57ed083f99e6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="250" height="15" uuid="19838491-477d-4649-8e17-e703fb90e842">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3ee4d99-f5ea-41de-b0ca-f1fc04ed083c"/>
+				</reportElement>
+				<text><![CDATA[Professor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="259" y="19" width="138" height="15" uuid="12a79ea2-6ce0-4075-8e63-f1bed2d7abe7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a91bbaf-9dfe-4ce4-a80d-106cc83bd57d"/>
+				</reportElement>
+				<text><![CDATA[Data de naixement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="416" y="19" width="138" height="15" uuid="386c43ab-cefb-4923-a830-8f9c028bd259">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="40956545-3418-4230-aba0-e83ac25aa946"/>
+				</reportElement>
+				<text><![CDATA[Sexe]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="39f48c34-b6ee-47f7-8876-c3aaee1eb021"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="250" height="15" uuid="952a35e6-53da-413e-83c8-8f3ec0966be5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3ee4d99-f5ea-41de-b0ca-f1fc04ed083c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{empleat}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement style="Detail" x="259" y="1" width="138" height="15" uuid="2409125a-5716-4be4-9e4f-74a722cdda95">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6a91bbaf-9dfe-4ce4-a80d-106cc83bd57d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{birthday}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="416" y="0" width="138" height="15" uuid="6f4ac893-fb21-4311-a394-59c1a8395f90">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="40956545-3418-4230-aba0-e83ac25aa946"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[IF($F{gender}.matches( "male" ),"Home","Dona")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="71ea44de-7a93-4d4f-a52c-4c16cd00015b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="e535a8ac-10a9-4f26-87e0-60b805cdf9c3"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="fff3e988-d444-495e-be94-0eff0d0462e7"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="b6dc2968-370c-49a3-a17a-642c31c3ecd6"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

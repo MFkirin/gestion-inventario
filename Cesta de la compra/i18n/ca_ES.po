@@ -1,0 +1,308 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* school
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-21 16:39+0000\n"
+"PO-Revision-Date: 2020-08-21 18:48+0200\n"
+"Last-Translator: Mikel <mlope868@xtec.cat>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"X-Generator: Poedit 2.4.1\n"
+
+#. module: school
+#: model:ir.model.fields.selection,name:school.selection__school_event__type__absence
+msgid "Absence"
+msgstr "Absència"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_student__active
+msgid "Active"
+msgstr "Actiu"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_student__age
+msgid "Age"
+msgstr "Edat"
+
+#. module: school
+#: model_terms:ir.ui.view,arch_db:school.student_form
+msgid "Archived"
+msgstr "Arxivat"
+
+#. module: school
+#: model:ir.model.fields.selection,name:school.selection__school_event__type__behavior
+msgid "Behavior"
+msgstr "Comportament"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_student__birthdate
+msgid "Birthdate"
+msgstr "Data de naixement"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__class_id
+#: model:ir.model.fields,field_description:school.field_school_student__class_id
+#: model_terms:ir.ui.view,arch_db:school.event_search_view
+msgid "Class"
+msgstr "Classe"
+
+#. module: school
+#: model_terms:ir.ui.view,arch_db:school.school_class_form
+msgid "Class denomination"
+msgstr "Denominació de la classe"
+
+#. module: school
+#: model:ir.actions.act_window,name:school.school_class_action_window
+#: model:ir.actions.act_window,name:school.student_action_window
+msgid "Class window"
+msgstr "Classe"
+
+#. module: school
+#: model:ir.ui.menu,name:school.menu_config_classes
+msgid "Classes"
+msgstr "Classes"
+
+#. module: school
+#: model:ir.ui.menu,name:school.menu_config
+msgid "Config"
+msgstr "Configuració"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__create_uid
+#: model:ir.model.fields,field_description:school.field_school_school_class__create_uid
+#: model:ir.model.fields,field_description:school.field_school_student__create_uid
+msgid "Created by"
+msgstr "Creat per"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__create_date
+#: model:ir.model.fields,field_description:school.field_school_school_class__create_date
+#: model:ir.model.fields,field_description:school.field_school_student__create_date
+msgid "Created on"
+msgstr "Data de creació"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_school_class__date_begin
+msgid "Date begin"
+msgstr "Data de començament"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_school_class__date_end
+msgid "Date end"
+msgstr "Data de fi"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__datetime_begin
+msgid "Datetime"
+msgstr "Data i hora"
+
+#. module: school
+#: model:ir.model.fields.selection,name:school.selection__school_event__type__delay
+msgid "Delay"
+msgstr "Retard"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_school_class__name
+msgid "Denomination"
+msgstr "Denominació"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__description
+#: model:ir.model.fields,field_description:school.field_school_school_class__description
+msgid "Description"
+msgstr "Descripció"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__display_name
+#: model:ir.model.fields,field_description:school.field_school_school_class__display_name
+#: model:ir.model.fields,field_description:school.field_school_student__display_name
+msgid "Display Name"
+msgstr "Nom a mostrar"
+
+#. module: school
+#: model:ir.model,name:school.model_hr_employee
+msgid "Employee"
+msgstr "Empleat"
+
+#. module: school
+#: model:ir.actions.act_window,name:school.view_employee_list
+msgid "Employees"
+msgstr "Empleats"
+
+#. module: school
+#: model_terms:ir.ui.view,arch_db:school.event_calendar
+msgid "Event Calendar"
+msgstr "Calendari"
+
+#. module: school
+#: model:ir.actions.act_window,name:school.event_action_window
+msgid "Event window"
+msgstr "Esdeveniments"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_student__event_ids
+#: model:ir.ui.menu,name:school.menu_events
+msgid "Events"
+msgstr "Esdeveniments"
+
+#. module: school
+#: model:ir.model.fields.selection,name:school.selection__school_event__type__felicitation
+msgid "Felicitation"
+msgstr "Felicitació"
+
+#. module: school
+#: model:ir.model.fields.selection,name:school.selection__school_school_class__grade__first
+msgid "First grade"
+msgstr "Primer"
+
+#. module: school
+#: model:ir.model.fields.selection,name:school.selection__school_school_class__grade__fourth
+msgid "Fourth grade"
+msgstr "Quart"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_school_class__grade
+msgid "Grade"
+msgstr "Curs"
+
+#. module: school
+#: model_terms:ir.ui.view,arch_db:school.event_search_view
+msgid "Group By"
+msgstr "Agrupar per"
+
+#. module: school
+#: model:ir.module.category,description:school.module_category_school
+msgid "Helps you manage your school"
+msgstr "Ajuda a gestionar la teva escola"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__id
+#: model:ir.model.fields,field_description:school.field_school_school_class__id
+#: model:ir.model.fields,field_description:school.field_school_student__id
+#: model:ir.model.fields,field_description:school.field_school_student__id_number
+msgid "ID"
+msgstr "DNI/NIE"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_hr_employee__is_teacher
+msgid "Is teacher"
+msgstr "És profesor?"
+
+#. module: school
+#: model:ir.model.fields,help:school.field_school_student__active
+msgid "Is the student currently part of the class?"
+msgstr "És l'estudiant actualmente part de la classe?"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event____last_update
+#: model:ir.model.fields,field_description:school.field_school_school_class____last_update
+#: model:ir.model.fields,field_description:school.field_school_student____last_update
+msgid "Last Modified on"
+msgstr "Data d'última modificació"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_student__last_name
+msgid "Last Name"
+msgstr "Cognoms"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__write_uid
+#: model:ir.model.fields,field_description:school.field_school_school_class__write_uid
+#: model:ir.model.fields,field_description:school.field_school_student__write_uid
+msgid "Last Updated by"
+msgstr "Actualitzat per"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__write_date
+#: model:ir.model.fields,field_description:school.field_school_school_class__write_date
+#: model:ir.model.fields,field_description:school.field_school_student__write_date
+msgid "Last Updated on"
+msgstr "Data d'última actualització"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_student__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: school
+#: model:ir.module.category,name:school.module_category_school
+#: model:ir.ui.menu,name:school.menu_root
+#: model_terms:ir.ui.view,arch_db:school.view_employee_form
+msgid "School"
+msgstr "Escola"
+
+#. module: school
+#: model:res.groups,name:school.group_school_manager
+msgid "School manager"
+msgstr "Director de l'escola"
+
+#. module: school
+#: model:ir.model,name:school.model_school_student
+msgid "School students"
+msgstr "Estudiants"
+
+#. module: school
+#: model:res.groups,name:school.group_school_teacher
+msgid "School teacher"
+msgstr "Professor"
+
+#. module: school
+#: model:ir.model.fields.selection,name:school.selection__school_school_class__grade__second
+msgid "Second grade"
+msgstr "Segon"
+
+#. module: school
+#: model:ir.model.constraint,message:school.constraint_school_student_id_number_uniq
+msgid "Student ID already exists !"
+msgstr "El DNI/NIE ja es trova a la base de dades"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_school_class__student_number
+msgid "Student number"
+msgstr "Número d'alumnes"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__student_ids
+#: model:ir.model.fields,field_description:school.field_school_school_class__student_ids
+#: model:ir.ui.menu,name:school.menu_config_students
+msgid "Students"
+msgstr "Alumnes"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__teacher_id
+#: model_terms:ir.ui.view,arch_db:school.view_employee_filter
+msgid "Teacher"
+msgstr "Professor"
+
+#. module: school
+#: model:ir.model.fields.selection,name:school.selection__school_school_class__grade__third
+msgid "Third grade"
+msgstr "Tercer"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_school_class__tutor_id
+msgid "Tutor"
+msgstr "Tutor"
+
+#. module: school
+#: model:ir.model.fields,field_description:school.field_school_event__type
+#: model_terms:ir.ui.view,arch_db:school.event_search_view
+msgid "Type"
+msgstr "Tipus"
+
+#. module: school
+#: model:ir.model,name:school.model_school_event
+msgid "school.event"
+msgstr ""
+
+#. module: school
+#: model:ir.model,name:school.model_school_school_class
+msgid "school.school_class"
+msgstr ""

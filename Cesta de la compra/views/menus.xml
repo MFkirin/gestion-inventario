@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Menú Raíz -->
+        <menuitem id="tienda_menu_root" name="Gestión de Tienda"/>
+
+        <!-- Submenús -->
+        <menuitem id="tienda_clientes_menu" name="Clientes" parent="tienda_menu_root" action="tienda_cliente_action"/>
+        <menuitem id="tienda_productos_menu" name="Productos" parent="tienda_menu_root" action="tienda_producto_action"/>
+        <menuitem id="tienda_inventarios_menu" name="Inventarios" parent="tienda_menu_root" action="tienda_inventario_action"/>
+        <menuitem id="tienda_cestas_menu" name="Cestas" parent="tienda_menu_root" action="tienda_cesta_action"/>
+        <menuitem id="tienda_pedidos_menu" name="Pedidos" parent="tienda_menu_root" action="tienda_pedido_action"/>
+        <menuitem id="tienda_descuentos_menu" name="Descuentos" parent="tienda_menu_root" action="tienda_descuento_action"/>
+
+
+    </data>
+</odoo>

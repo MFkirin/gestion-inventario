@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+        <report
+            id="report_event"
+            model="school.event"
+            string="Event Report"
+            name="school.report_event_view"
+            file="school.report_event"
+            report_type="qweb-pdf" />
+        <template id="report_event_view">
+            <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+            <t t-call="web.external_layout">
+            <div class="page">
+            <div class="container-fluid">
+                <h2 class="text-center mt32">
+                    Event:
+                    <span t-field="doc.type"/>
+                </h2>
+                <div class="row mt32 mb32">
+                    <div class="col-7">
+                    </div>
+                    <div class="col-3">
+                        <p class="text-right">
+                            Event no:</p>
+                        <p class="text-right">
+                            Open date:</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="text-right">
+                            <span t-field="doc.id"/></p>
+                        <p class="text-right">
+                            <span t-field="doc.datetime_begin"/></p>
+                    </div>
+                </div>
+
+                <div class="row mt3 mb3">
+                    <div class="col">
+                    <p>
+                       <strong>Teacher:</strong>
+                       <span t-field="doc.teacher_id"/>
+                    </p>
+                    </div>
+                </div>
+               <div class="row mt32 mb32">
+                   <div class="col-12">
+                        <p><strong>Description</strong></p>
+                        <p t-field="doc.description"/>
+                   </div>
+               </div>
+               <div class="row mt32 mb32">
+                   <div class="col-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                        <th>Students</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.student_ids" t-as="student">
+                                    <td><span t-field="student.name"/> <span t-field="student.last_name"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                   </div>
+               </div>
+               <div class="row mt64 mb32">
+                    <div class="col-4">
+                        <p><strong>Teacher's signature</strong></p>
+                        <div t-field="doc.teacher_id"/>
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-4 text-right"></div>
+               </div>
+            </div>
+            </div>
+            </t>
+            </t>
+            </t>
+        </template>
+    </data>
+</odoo>

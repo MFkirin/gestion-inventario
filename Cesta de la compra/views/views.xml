@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Acción para Clientes -->
+        <record model="ir.actions.act_window" id="tienda_cliente_action">
+            <field name="name">Clientes</field>
+            <field name="res_model">tienda.cliente</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para Productos -->
+        <record model="ir.actions.act_window" id="tienda_producto_action">
+            <field name="name">Productos</field>
+            <field name="res_model">tienda.producto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para Inventarios -->
+        <record model="ir.actions.act_window" id="tienda_inventario_action">
+            <field name="name">Inventarios</field>
+            <field name="res_model">tienda.inventario</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para Cestas -->
+        <record model="ir.actions.act_window" id="tienda_cesta_action">
+            <field name="name">Cestas</field>
+            <field name="res_model">tienda.cesta</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+        <!-- Acción para Pedidos -->
+        <record model="ir.actions.act_window" id="tienda_pedido_action">
+            <field name="name">Pedidos</field>
+            <field name="res_model">tienda.pedido</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para Descuentos -->
+        <record model="ir.actions.act_window" id="tienda_descuento_action">
+            <field name="name">Descuentos</field>
+            <field name="res_model">tienda.descuento</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Vistas para Clientes -->
+        <record model="ir.ui.view" id="tienda_cliente_tree_view">
+            <field name="name">Clientes Tree</field>
+            <field name="model">tienda.cliente</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                    <field name="edad"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tienda_cliente_form_view">
+            <field name="name">Clientes Form</field>
+            <field name="model">tienda.cliente</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="apellidos"/>
+                            <field name="email"/>
+                            <field name="telefono"/>
+                        </group>
+                        <group>
+                            <field name="birth_date"/>
+                            <field name="edad" readonly="1"/>
+                            <field name="saldo"/>
+                            <field name="metodo_pago"/>
+                            <field name="dinero_gastado" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="nif"/>
+                            <field name="tutor_nif"
+                                   attrs="{'required': [('edad', '&lt;', 18)], 'readonly': [('edad', '>=', 18)]}"/>
+                            <field name="country_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vistas para Productos -->
+        <record model="ir.ui.view" id="tienda_producto_tree_view">
+            <field name="name">Productos Tree</field>
+            <field name="model">tienda.producto</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="categoria"/>
+                    <field name="precio"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tienda_producto_form_view">
+            <field name="name">Productos Form</field>
+            <field name="model">tienda.producto</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="categoria"/>
+                            <field name="precio"/>
+                        </group>
+                        <group>
+                            <field name="descripcion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vistas para Inventarios -->
+        <record model="ir.ui.view" id="tienda_inventario_tree_view">
+            <field name="name">Inventarios Tree</field>
+            <field name="model">tienda.inventario</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="producto_id"/>
+                    <field name="cantidad_disponible"/>
+                    <field name="almacen"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tienda_inventario_form_view">
+            <field name="name">Inventarios Form</field>
+            <field name="model">tienda.inventario</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="producto_id"/>
+                            <field name="cantidad_disponible"/>
+                            <field name="almacen"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vistas para Cestas -->
+        <record model="ir.ui.view" id="tienda_cesta_tree_view">
+            <field name="name">Cestas Tree</field>
+            <field name="model">tienda.cesta</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="cliente_id"/>
+                    <field name="fecha_creacion"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tienda_cesta_form_view">
+            <field name="name">Cestas Form</field>
+            <field name="model">tienda.cesta</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="cliente_id" attrs="{'readonly': [('estado', '=', 'finalizada')]}"/>
+                            <field name="fecha_creacion" attrs="{'readonly': [('estado', '=', 'finalizada')]}"/>
+                            <field name="estado" attrs="{'readonly': [('estado', '=', 'finalizada')]}"/>
+                            <field name="total_cesta" readonly="1"/>
+                            <field name="total_con_descuento" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="codigo_descuento" placeholder="Ingrese el código de descuento"/>
+                            <field name="descuento_id" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Lista de Compras">
+                                <field name="lista_compra_ids" attrs="{'readonly': [('estado', '=', 'finalizada')]}">
+                                    <tree editable="bottom">
+                                        <field name="inventario_id" options="{'no_create': True}" required="1"/>
+                                        <field name="cantidad" required="1"/>
+                                        <field name="precio_total" readonly="1"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="inventario_id" options="{'no_create': True}" required="1"/>
+                                            <field name="cantidad" required="1"/>
+                                            <field name="precio_total" readonly="1"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Vista Calendar para Cestas -->
+        <record model="ir.ui.view" id="tienda_cesta_calendar_view">
+            <field name="name">Cestas Calendar</field>
+            <field name="model">tienda.cesta</field>
+            <field name="arch" type="xml">
+                <calendar string="Cestas" date_start="fecha_creacion">
+                    <field name="cliente_id"/>
+                    <field name="estado"/>
+                    <field name="total_cesta" readonly="1"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tienda_lista_compra_form_view">
+            <field name="name">Lista de Compras Form</field>
+            <field name="model">tienda.lista_compra</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="cesta_id"/>
+                            <field name="inventario_id"/>
+                            <field name="cantidad"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vistas para Descuentos -->
+        <record model="ir.ui.view" id="tienda_descuento_tree_view">
+            <field name="name">Descuentos Tree</field>
+            <field name="model">tienda.descuento</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="codigo"/>
+                    <field name="porcentaje"/>
+                    <field name="fecha_expiracion"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tienda_descuento_form_view">
+            <field name="name">Descuentos Form</field>
+            <field name="model">tienda.descuento</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="codigo"/>
+                            <field name="porcentaje"/>
+                            <field name="fecha_expiracion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="tienda_descuento_action">
+            <field name="name">Descuentos</field>
+            <field name="res_model">tienda.descuento</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

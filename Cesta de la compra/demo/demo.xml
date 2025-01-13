@@ -1,0 +1,240 @@
+<odoo>
+    <data>
+        <record id="user_joan" model="res.users">
+            <field name="name">Joan Pardo</field>
+            <field name="login">joan</field>
+            <field name="password">joan</field>
+            <field name="groups_id" eval="[(6, 0, [ref('group_school_teacher'), ref('base.group_user')])]" />
+        </record>
+        <record id="teacher_joan" model="hr.employee">
+            <field name="name">Joan Pardo</field>
+            <field name="user_id" ref="user_joan"/>
+            <field name="work_email">joan@odoo.com</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <record id="user_alfons" model="res.users">
+            <field name="name">Alfons Pardo</field>
+            <field name="login">alfons</field>
+            <field name="password">alfons</field>
+            <field name="groups_id" eval="[(6, 0, [ref('group_school_teacher'), ref('base.group_user')])]" />
+        </record>
+        <record id="teacher_alfons" model="hr.employee">
+            <field name="name">Alfons Pardo</field>
+            <field name="user_id" ref="user_alfons"/>
+            <field name="work_email">alfons@odoo.com</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <record id="user_agusti" model="res.users">
+            <field name="name">Agustí Brou</field>
+            <field name="login">agusti</field>
+            <field name="password">agusti</field>
+            <field name="groups_id" eval="[(6, 0, [ref('group_school_manager'), ref('base.group_user')])]" />
+        </record>
+        <record id="principal_agusti" model="hr.employee">
+            <field name="name">Agustí Brou</field>
+            <field name="user_id" ref="user_agusti"/>
+            <field name="work_email">agusti@odoo.com</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <record id="class_1" model="school.school_class">
+            <field name="name">1r A</field>
+            <field name="grade">first</field>
+            <field name="date_begin">2020-09-01</field>
+            <field name="date_end">2021-07-01</field>
+            <field name="tutor_id" ref="teacher_joan" />
+            <field name="student_number">30</field>
+            <field name="description">1r A. Primera classe del primer curs de l'ESO</field>
+        </record>
+
+        <record id="class_2" model="school.school_class">
+            <field name="name">1r B</field>
+            <field name="grade">first</field>
+            <field name="date_begin">2020-09-01</field>
+            <field name="date_end">2021-07-01</field>
+            <field name="tutor_id" ref="teacher_alfons" />
+            <field name="student_number">30</field>
+            <field name="description">1r A. Primera classe del primer curs de l'ESO</field>
+        </record>
+
+        <record id="student_1" model="school.student">
+            <field name="name">Marina</field>
+            <field name="last_name">Cognom</field>
+            <field name="id_number">123123123A</field>
+            <field name="birthdate">2007-09-01</field>
+            <field name="class_id" ref="class_1" />
+        </record>
+        <record id="student_2" model="school.student">
+            <field name="name">Blai</field>
+            <field name="last_name">Cognom</field>
+            <field name="id_number">123123123B</field>
+            <field name="birthdate">2007-06-09</field>
+            <field name="class_id" ref="class_1" />
+          </record>
+        <record id="student_3" model="school.student">
+            <field name="name">Pol</field>
+            <field name="last_name">Cognom</field>
+            <field name="id_number">123123123C</field>
+            <field name="birthdate">2007-05-15</field>
+            <field name="class_id" ref="class_1" />
+        </record>
+        <record id="student_4" model="school.student">
+            <field name="name">Ruth</field>
+            <field name="last_name">Cognom</field>
+            <field name="id_number">123123123D</field>
+            <field name="birthdate">2007-10-01</field>
+            <field name="class_id" ref="class_1" />
+        </record>
+
+        <record id="student_5" model="school.student">
+            <field name="name">Jan</field>
+            <field name="last_name">Cognom</field>
+            <field name="id_number">123123123E</field>
+            <field name="birthdate">2007-09-01</field>
+            <field name="class_id" ref="class_2" />
+        </record>
+        <record id="student_6" model="school.student">
+            <field name="name">Ona</field>
+            <field name="last_name">Cognom</field>
+            <field name="id_number">123123123F</field>
+            <field name="birthdate">2007-06-09</field>
+            <field name="class_id" ref="class_2" />
+          </record>
+        <record id="student_7" model="school.student">
+            <field name="name">Mel</field>
+            <field name="last_name">Cognom</field>
+            <field name="id_number">123123123G</field>
+            <field name="birthdate">2007-05-15</field>
+            <field name="class_id" ref="class_2" />
+        </record>
+        <record id="student_8" model="school.student">
+            <field name="name">Berto</field>
+            <field name="last_name">Cognom</field>
+            <field name="id_number">123123123H</field>
+            <field name="birthdate">2007-10-01</field>
+            <field name="class_id" ref="class_2" />
+        </record>
+
+        <record id="event_1" model="school.event">
+            <field name="type">absence</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_1'),ref('student_2')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">No han vingut a classe i els hi han vist pel carrer</field>
+        </record>
+
+        <record id="event_2" model="school.event">
+            <field name="type">delay</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=1)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_3')])]"/>
+            <field name="teacher_id" ref="teacher_joan" />
+            <field name="description">Ha entrat després del pati 10 minuts tard</field>
+        </record>
+
+        <record id="event_3" model="school.event">
+            <field name="type">felicitation</field>
+            <field name="class_id" ref="class_2"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=2)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_5'),ref('student_6'),ref('student_7')])]"/>
+            <field name="teacher_id" ref="teacher_joan" />
+            <field name="description">Felicitacions, el comportament ha estat excel·lent</field>
+        </record>
+
+        <record id="event_4" model="school.event">
+            <field name="type">behavior</field>
+            <field name="class_id" ref="class_2"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=3)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_8')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">Expulsat de l'aula per molestar contínuament</field>
+        </record>
+        <record id="event_5" model="school.event">
+            <field name="type">absence</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=4)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_1'),ref('student_2')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">No han vingut a classe i els hi han vist pel carrer</field>
+        </record>
+        <record id="event_6" model="school.event">
+            <field name="type">absence</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=5)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_1'),ref('student_2')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">No han vingut a classe i els hi han vist pel carrer</field>
+        </record>
+        <record id="event_7" model="school.event">
+            <field name="type">absence</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=6)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_1'),ref('student_2')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">No han vingut a classe i els hi han vist pel carrer</field>
+        </record>
+        <record id="event_8" model="school.event">
+            <field name="type">absence</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_5'),ref('student_6')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">No han vingut a classe i els hi han vist pel carrer</field>
+        </record>
+
+        <record id="event_9" model="school.event">
+            <field name="type">delay</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=31)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_3')])]"/>
+            <field name="teacher_id" ref="teacher_joan" />
+            <field name="description">Ha entrat després del pati 10 minuts tard</field>
+        </record>
+
+        <record id="event_10" model="school.event">
+            <field name="type">felicitation</field>
+            <field name="class_id" ref="class_2"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=32)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_5'),ref('student_6'),ref('student_7')])]"/>
+            <field name="teacher_id" ref="teacher_joan" />
+            <field name="description">Felicitacions, el comportament ha estat excel·lent</field>
+        </record>
+
+        <record id="event_11" model="school.event">
+            <field name="type">behavior</field>
+            <field name="class_id" ref="class_2"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=33)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_8')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">Expulsat de l'aula per molestar contínuament</field>
+        </record>
+        <record id="event_12" model="school.event">
+            <field name="type">absence</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=34)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_1'),ref('student_2')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">No han vingut a classe i els hi han vist pel carrer</field>
+        </record>
+        <record id="event_13" model="school.event">
+            <field name="type">absence</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=35)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_1'),ref('student_2')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">No han vingut a classe i els hi han vist pel carrer</field>
+        </record>
+        <record id="event_14" model="school.event">
+            <field name="type">absence</field>
+            <field name="class_id" ref="class_1"/>
+            <field name="datetime_begin" eval="datetime.now()-timedelta(days=36)"/>
+            <field name="student_ids" eval="[(6,0,[ref('student_1'),ref('student_2')])]"/>
+            <field name="teacher_id" ref="teacher_alfons" />
+            <field name="description">No han vingut a classe i els hi han vist pel carrer</field>
+        </record>
+
+    </data>
+</odoo>
